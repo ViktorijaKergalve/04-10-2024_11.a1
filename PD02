@@ -28,10 +28,10 @@ print("uzminet skaitli no 0 lidz 100")
 uzminets = False
 while not uzminets:
     skaitlis = int(input("ievadiet skaitli:"))
-  if skaitlis < izveles_skaitlis:
+    if skaitlis < izveles_skaitlis:
             print("Lielaks!")
-  if skaitlis < izveles_skaitlis:
+    if skaitlis < izveles_skaitlis:
         print("Mazāks!")
-  if skaitlis < izveles_skaitlis:
+    if skaitlis < izveles_skaitlis:
         print("Uzminēts!")
-    break
+        break
