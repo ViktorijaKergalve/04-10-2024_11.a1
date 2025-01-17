@@ -1,0 +1,31 @@
+filma = {
+    "Nosaukums": "The Twilight Saga: New Moon",
+    "Zanrs": "romantika",
+    "Aktieri": ["Kristena Stjuarte", "Roberts Patinsons", "Teilors Lautners"],
+    "režisors": "Kriss Veics"
+}
+# pievieno imdb retingu
+filma["IMDB_reitings"] = 4.8
+
+# maina zanru
+filma["žanrs"] = "fantāzija"
+
+# izdzēs režisoru
+del filma["režisors"]
+
+filma2 = {
+    "Nosaukums": "My Fault",
+    "Zanrs": "romantika",
+    "Aktieri": ["Nicole Wallace", "Gabriel Guevara", "Noah Casas"],
+    "režisors": "Domingo González",
+    "IMDB_reitings": 6.2
+
+
+}
+
+# pievieno otro filmu
+filmas = {"filma1": filma, "filma2": filma2}
+
+# izdrukā vārdnicu
+print(filma)
+print(filma2)
