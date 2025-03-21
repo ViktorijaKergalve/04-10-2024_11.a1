@@ -1,0 +1,64 @@
+
+class Block:
+    counter = 0
+    def __init__(self, name, texture, canBreak):
+        self.nosaukums = name
+        self.tekstura = texture
+        self.varIznicinat = canBreak
+        self.id = Block.counter
+        Block.counter += 1
+        
+        print(f'Ir izveidots jaunais bloks: {self.id} {self.nosaukums}')
+        
+    def __str__(self):
+        return f'{self.id} {self.nosaukums} {self.tekstura} {self.varIznicinat}'
+        
+        
+
+"""
+bloks1 = Block("Stone", "Stone.png", True)
+bloks2 = Block("Stone2", "Stone2.png", True)
+bloks3 = Block("Stone3", "Stone3.png", False)
+
+print(bloks1)
+print(bloks2)
+print(bloks3)
+"""
+
+
+
+
+from Blockclass import Block
+
+class Inventars:
+    
+    def __init__(self, size):
+        self.inventars = []
+        self.MaksIzmers = size
+        
+    def pievienotBloku(self, Block):
+        if( len(self.inventars) <= self.MaksIzmers ):
+                self.inventars.append(Block)
+        else:
+            print('Error!')
+            
+    def __str__(self):
+        return f'{self.inventars}'
+    
+rinda1 = Inventars(5)
+
+
+
+bloks1 = Block("Stone", "Stone.png", True)
+bloks2 = Block("Stone2", "Stone2.png", True)
+bloks3 = Block("Stone3", "Stone3.png", False)
+
+rinda1.pievienotBloku(bloks1)
+rinda1.pievienotBloku(bloks2)
+rinda1.pievienotBloku(bloks3)
+
+print(rinda1)
+
+print(bloks1)
+print(bloks2)
+print(bloks3)
