@@ -1,0 +1,84 @@
+#1.uzd 
+class Darbinieks:
+    darbinieku_skaits = 0
+
+    def __init__(self, vards, uzvards, alga):
+        self.vards = vards
+        self.uzvards = uzvards
+        self.alga = alga
+        Darbinieks.darbinieku_skaits += 1
+        self.ID = Darbinieks.darbinieku_skaits
+
+    def increase_salary(self, procenti):
+        self.alga += self.alga * (procenti / 100)
+
+    def decrease_salary(self, procenti):
+        self.alga -= self.alga * (procenti / 100)
+
+    def __str__(self):
+        return f"{self.ID}-{self.vards}-{self.uzvards}"
+
+if __name__ == "__main__":
+    darbinieks1 = Darbinieks("Vika", "L", 1000)
+    darbinieks2 = Darbinieks("Alekss", "P", 1200)
+
+    print(darbinieks1)
+    print(darbinieks2)
+
+    darbinieks1.increase_salary(10)
+    darbinieks2.decrease_salary(5)
+
+    print(f"Jaunā alga Vika: {darbinieks1.alga}")
+    print(f"Jaunā alga Alekss: {darbinieks2.alga}")
+    
+    #2.uzd
+
+from darbinieks import Darbinieks
+
+class Uznemums:
+    def __init__(self, nosaukums):
+        self.nosaukums = nosaukums
+        self.darbinieki = []
+
+    def pievienot_darbinieku(self, darbinieks):
+        self.darbinieki.append(darbinieks)
+
+    def paradit_visus_darbiniekus(self):
+        print(f"Uzņēmums: {self.nosaukums}")
+        for d in self.darbinieki:
+            print(d)
+
+    def augstaka_alga(self):
+        if not self.darbinieki:
+            return None
+        
+
+        augstakais = self.darbinieki[0]
+        for d in self.darbinieki:
+            if d.alga > augstakais.alga:
+                 augstakais = d
+        return augstakais
+
+if __name__ == "__main__":
+    uznemums = Uznemums("Jaunekli")
+
+
+d1 = Darbinieks("Vika", "L", 1500)
+d2 = Darbinieks("Alekss", "P", 1800)
+d3 = Darbinieks("Anna", "A", 2000)
+
+uznemums.pievienot_darbinieku(d1)
+uznemums.pievienot_darbinieku(d2)
+uznemums.pievienot_darbinieku(d3)
+
+print("Pirms algu maiņas:")
+uznemums.paradit_visus_darbiniekus()
+
+d1.increase_salary(10)
+d3.decrease_salary(5)
+
+print("Pēc algu maiņas:")
+uznemums.paradit_visus_darbiniekus()
+
+augstakais = uznemums.augstaka_alga()
+print(f"Darbinieks ar augstāko algu: {augstakais}")
